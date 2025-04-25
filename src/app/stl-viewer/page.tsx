@@ -13,7 +13,8 @@ export default function STLViewerDemo() {
     },
   ];
 
-  const [selectedModel, setSelectedModel] = useState(demoModels[0]);
+  //   const [selectedModel, setSelectedModel] = useState(demoModels[0]);
+  const selectedModel = demoModels[0];
   const [viewerWidth, setViewerWidth] = useState(600);
   const [viewerHeight, setViewerHeight] = useState(400);
 
