@@ -47,9 +47,11 @@ const STLViewer: React.FC<STLViewerProps> = ({
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(backgroundColor);
 
-    // Camera setup
+    // Camera setup with front view
     const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    camera.position.z = 5;
+    // Position camera for a front view (slightly above and in front)
+    camera.position.set(-50, 0, 5);
+    camera.lookAt(0, 0, 0);
 
     // Renderer setup
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -58,12 +60,14 @@ const STLViewer: React.FC<STLViewerProps> = ({
     renderer.setPixelRatio(window.devicePixelRatio);
     mountRef.current.appendChild(renderer.domElement);
 
-    // Controls setup
+    // Controls setup with front view target
     const controls = new OrbitControls(camera, renderer.domElement);
     controlsRef.current = controls;
     controls.enableDamping = true;
     controls.dampingFactor = 0.25;
     controls.enableZoom = true;
+    controls.target.set(0, 0, 0);
+    controls.update();
 
     // Lighting setup
     const ambientLight = new THREE.AmbientLight(0x404040, 1.5);

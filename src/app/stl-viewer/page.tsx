@@ -9,7 +9,7 @@ export default function STLViewerDemo() {
     {
       name: "4SHAUL",
       // Using an external sample STL file
-      url: "/models/4SHAUL.stl",
+      url: "/models/dcenter.stl",
     },
   ];
 
@@ -31,7 +31,7 @@ export default function STLViewerDemo() {
         width={viewerWidth}
         height={viewerHeight}
         backgroundColor={"#f5f5f5"}
-        modelColor={"#00bcd4"}
+        modelColor={"#ffffff"}
       />
     </div>
   );
